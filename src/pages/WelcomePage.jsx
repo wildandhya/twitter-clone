@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { banner, logoTwitter } from "../utils/image/index";
 import Button from "../components/Button";
 
@@ -15,9 +16,12 @@ function WelcomePage() {
           <h1>Happening now</h1>
           <h3>Join Twitter today.</h3>
         </div>
-
-        <Button textBtn="Sign up"/>
-        <Button className="login" textBtn="Log in" />
+        <Link to="/signup">
+          <Button textBtn="Sign up" />
+        </Link>
+        <Link to="login">
+          <Button className="login" textBtn="Log in" />
+        </Link>
       </div>
     </div>
   );

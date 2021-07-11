@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Redirect, Switch } from "react-router-dom";
+import { Route, Redirect} from "react-router-dom";
 import Home from "../pages/Home";
 export default function ProtectedRoute() {
   const token = localStorage.getItem("token");

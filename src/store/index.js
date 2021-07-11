@@ -20,6 +20,7 @@ export const baseAxios = axios.create({
 
 const rootReducer = combineReducers({
     AuthReducer,
+    HomeReducer
 })
 
 export const store = createStore(rootReducer, applyMiddleware(reduxSoldierMiddleware))

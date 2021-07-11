@@ -14,16 +14,18 @@ export function login ( dispatch, data, history, setErr) {
 }
 
 
-export function signup (data, history, setErr) {
+export function signup (dispatch, data, history, setErr) {
     baseAxios.post( '/api/v1/auth/register', data)
     .then( async ({data}) => {
+        console.log(data)
         if(data&&data.message === 'Register Success') {
             await localStorage.setItem("token", data.token)
             history.replace("/home")
         }
     })
     .catch(err => {
-        setErr(err.response)
+        console.log(err.response)
+        setErr(err.response.data.message)
     })
 }
 

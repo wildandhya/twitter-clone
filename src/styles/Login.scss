@@ -1,3 +1,5 @@
+$primaryColor: #1da1f2;
+
 .login-container{
   min-height: 100vh;
   width: 100%;
@@ -18,6 +20,10 @@
       color: red;
       padding: 0;
       margin: 0;
+    }
+    .text-signup{
+      color: $primaryColor;
+      font-size: 13px;
     }
   }
 }

@@ -1,9 +1,13 @@
 import React from "react";
-
+import {useHistory} from 'react-router-dom'
 import "../../styles/LeftContent.scss";
-import { logoTwitter, home } from "../../utils/image/index";
+import { DropdownButton, Dropdown} from "react-bootstrap";
+import {logout} from '../../store/Auth/action'
+import { logoTwitter, home, banner } from "../../utils/image/index";
 import Button from "../Button";
+
 function LeftContent() {
+  const history = useHistory()
   return (
     <div className="leftContent-container">
       <img src={logoTwitter} alt="twitter-logo" />
@@ -43,6 +47,17 @@ function LeftContent() {
       </div>
       <div className="btn">
         <Button textBtn="Tweet" />
+      </div>
+      <div className="profile_menu">
+        <img src={banner} alt="profile-img"  className="profile-img"/>
+        <div className="header-section">
+          <h4>wiildan</h4>
+          <h5>@willdan</h5>
+        </div>
+        <DropdownButton title={<i class="bi bi-three-dots"></i>}>
+            <Dropdown.Item>Add an existing account</Dropdown.Item>
+            <Dropdown.Item onClick={()=>logout(history)}>log out</Dropdown.Item>
+          </DropdownButton>
       </div>
     </div>
   );

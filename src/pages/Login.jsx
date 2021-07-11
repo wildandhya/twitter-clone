@@ -1,24 +1,22 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { InputGroup, FormControl } from "react-bootstrap";
 import { logoTwitter } from "../utils/image/index";
-import { useDispatch } from 'react-redux'
-import { useHistory } from "react-router-dom";
-
-import {login} from '../store/Auth/action'
-import Button from '../components/Button'
+import { useDispatch } from "react-redux";
+import { useHistory, Link } from "react-router-dom";
+import { login } from "../store/Auth/action";
+import Button from "../components/Button";
 import "../styles/Login.scss";
 
 function Login() {
-  const dispatch = useDispatch()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [err, setErr] = useState('')
-  const history = useHistory()
-  console.log(err)
-  const submitLogin = (event)=>{
-    event.preventDefault()
-    login(dispatch, { email: email, password: password }, history, setErr)
-  }
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [err, setErr] = useState("");
+  const history = useHistory();
+  const submitLogin = (event) => {
+    event.preventDefault();
+    login(dispatch, { email: email, password: password }, history, setErr);
+  };
 
   return (
     <div className="login-container">
@@ -30,8 +28,8 @@ function Login() {
             aria-label="Small"
             aria-describedby="inputGroup-sizing-sm"
             placeholder="Email"
-            onChange={(event)=>{
-              setEmail(event.target.value)
+            onChange={(event) => {
+              setEmail(event.target.value);
             }}
           />
         </InputGroup>
@@ -40,14 +38,16 @@ function Login() {
             aria-label="Small"
             aria-describedby="inputGroup-sizing-sm"
             placeholder="Password"
-            onChange={(event)=>{
-              setPassword(event.target.value)
+            onChange={(event) => {
+              setPassword(event.target.value);
             }}
           />
         </InputGroup>
         <p className="err-message">{err}</p>
-        <Button textBtn="Log in" action={submitLogin}/>
-        <p>Sign up for Twitter</p>
+        <Button textBtn="Log in" action={submitLogin} />
+        <Link to="/signup">
+          <p className="text-Signup">Sign up for Twitter</p>
+        </Link>
       </div>
     </div>
   );
