@@ -1,0 +1,11 @@
+.home-container {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.7fr;
+  min-height: 100vh;
+}
+
+@media screen and(max-width:1061px) {
+  .home-container {
+    grid-template-columns: 0.1fr 1fr 0.7fr;
+  }
+}

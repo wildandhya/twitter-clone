@@ -1,0 +1,46 @@
+.rightContent-container{
+    background-color: #fff;
+    border-left: 1px solid #eee;
+    padding:0 25px;
+    .card-trending-topic{
+        background-color: #F7F9F9;
+        border-radius: 18px;
+        padding: 10px;
+        .trending-topic-header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 10px; 
+            h1{
+                font-size: 20px;
+                font-weight: bold;
+            }
+            i{
+                font-size: 20px;
+                color:  #1da1f2;
+            }
+        }
+        .trending-topic-content{
+            display: flex;
+            justify-content: space-between;  
+            border-bottom: 1px solid #eee; 
+            padding-bottom: 7px;        
+            p{
+                margin: 0;
+                color: #536471;
+                font-size: 13px;
+            }
+            h6{
+                margin: 0;
+            }
+        }
+        .trending-topic-footer{
+            padding-top: 10px;
+            h6{
+                font-size: 16px;
+                color:  #1da1f2; 
+            }
+        }
+    }
+}

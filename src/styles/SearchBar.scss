@@ -1,0 +1,19 @@
+.input-group{
+    padding-top: 10px;
+    .input-group-text{
+        border-radius: 50px;
+        border: none;
+        background-color: #EFF3F4;
+        i{
+            color: #5C6C79;
+        }
+    }
+    .form-control{
+        border: none;
+        border-radius: 50px;
+        background-color: #EFF3F4;
+        font-size: 15px;
+        color: #536471;
+        font-weight: 400;
+    }
+}

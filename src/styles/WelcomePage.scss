@@ -1,0 +1,63 @@
+// variabel
+$primaryColor: #1da1f2;
+$secondryColor: #fff;
+
+@mixin input-styles($type: "signup") {
+  border-radius: 40px;
+  padding: 13px 25px;
+  background-color: $primaryColor;
+  border: none;
+  width: 60%;
+  text-align: center;
+  color:$secondryColor !important;
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: 20px;
+
+  @if $type == "login" {
+    background-color: $secondryColor;
+    border: 1px solid $primaryColor;
+    color:$primaryColor !important;
+  }
+}
+
+.container-fluid {
+  min-height: 100vh;
+  padding: 0 !important;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  .banner-section {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  .form-login {
+    padding-left: 30px;
+    img {
+      margin-top: 30px;
+      width: 39px;
+      height: 32px;
+    }
+    .text {
+      h1 {
+        font-weight: bold;
+        font-size: 64px;
+      }
+      h3 {
+        font-weight: bold;
+        font-size: 31px;
+      }
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      .signup {
+        @include input-styles();
+      }
+      .login {
+        @include input-styles("login");
+      }
+    }
+  }
+}

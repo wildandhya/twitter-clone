@@ -1,0 +1,30 @@
+$primaryColor: #1da1f2;
+$secondryColor: #fff;
+
+@mixin button-styles($type: "default") {
+  border-radius: 40px;
+  padding: 13px 25px;
+  background-color: $primaryColor;
+  border: none;
+  width: 100%;
+  text-align: center;
+  color:$secondryColor !important;
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: 20px;
+
+  @if $type == "login" {
+    background-color: $secondryColor;
+    border: 1px solid $primaryColor;
+    color:$primaryColor !important;
+  }
+}
+
+.default{
+    @include button-styles()
+}
+
+.login{
+    @include button-styles('login')
+}
+

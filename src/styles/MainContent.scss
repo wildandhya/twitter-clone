@@ -1,0 +1,126 @@
+$primaryColor: #1da1f2;
+$secondryColor: #fff;
+
+.mainContent-container{
+    background-color: #f7f9f9;
+
+    .header{
+        width: 100%;
+        position: sticky;
+        background-color: #fff;
+        border-bottom: 1px solid #eee;
+        height: 8vh;
+        h1{
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 8vh;
+            padding-left: 18px;
+        }
+    }
+
+    .form-tweet{
+        background-color: #fff;
+        display: grid;
+        grid-template-columns: 0fr 1fr;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #eee;
+        .profile-img{
+            margin-left: 20px;
+            margin-top: 15px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+        }
+        .input-group{
+            display: grid;
+            grid-template-rows: 1fr 0fr;
+            .input-tweet{
+                border: none;
+                margin-left: 6px;
+            }
+            .input-tweet::after{
+                border: none;
+            }
+            .bottom-input{
+                border-top: 1px solid #eee;
+                margin-left: 6px;
+                height: 10%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: baseline;
+                .icons{
+                    .bi{
+                        padding-right: 30px;
+                        font-size: 20px;
+                        color: $primaryColor;
+                    }
+                }
+                .btn-wrapper{
+                    width: 20%;
+                    height: 10%;
+                    padding-bottom: 15px;
+                    padding-right: 10px;
+                }
+            }
+        }
+    }
+
+    .card{
+        background-color: $secondryColor;
+        border-top: 1px solid #eee;
+        border-left: none;
+        border-right: none;
+        display: grid;
+        grid-template-columns: 0fr 1fr;
+        padding-left: 20px;
+       
+        .profile-img{
+            margin-top: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+        }
+        .section-card{
+            padding: 10px 0;
+            padding-left: 10px;
+            .header-section{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                h4{
+                    font-size: 17px;  
+                }
+                h5{
+                    padding-left: 5px;
+                    font-size: 15px;
+                    font-weight: 500;
+                    color: #7B8892;
+                }
+                h6{
+                    padding-left: 5px;
+                    font-size: 14px;
+                    font-weight:400;
+                    color: #7B8892;
+                    flex-grow: 0.9;
+                }
+                span{
+                    padding-right: 5px;
+                }
+            }
+            .content-section{
+                p{
+                    color: #525659;
+                }
+            }
+            .icons-section{
+                font-size: 17px;
+                color: #687782;
+                .bi{
+                    padding-right: 50px;
+                }
+            }
+
+        }
+    }
+}
