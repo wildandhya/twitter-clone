@@ -13,12 +13,7 @@ const homeReducer = (state = initialState, action) => {
     case "EDIT_TWEET":
       return { ...state, tweetData: [data].concat(state.tweetData) };
     case "REMOVE_TWEET":
-      return {
-        ...state,
-        tweetData: state.tweetData.filter(
-          (provinsiData) => provinsiData._id !== data
-        ),
-      };
+      return {...state,tweetData: state.tweetData.filter((tweetData) => tweetData.id !== data)};
     default:
       return state;
   }

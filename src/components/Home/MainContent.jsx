@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Dropdown, DropdownButton } from "react-bootstrap";
-
+import Swal from 'sweetalert2'
 import { getTweet, createTweet } from "../../store/Home/action";
 import "../../styles/MainContent.scss";
 import Button from "../Button";

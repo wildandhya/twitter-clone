@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 import { baseAxios } from '../index'
 
 export function getTweet(dispatch) {
@@ -7,6 +8,11 @@ export function getTweet(dispatch) {
             dispatch({ type: "GET_TWEET", data: response.data.data });
         })
         .catch(err => {
+            Swal.fire({
+                icon: "error",
+                title: `sorry something haven't`,
+                text: err.response.data && err.response.data.message ? err.response.data.message : 'internal server error',
+              });
             console.log(err)
         })
 }
@@ -18,6 +24,12 @@ export function createTweet(dispatch, data, setErr) {
             dispatch({ type: "SET_TWEET", data: response.data.data });
         })
         .catch(err => {
+            console.log(err.response.data.message)
+            Swal.fire({
+                icon: "Failed",
+                title: `Post Tweet Failed`,
+                text: err.response.data && err.response.data.message ? err.response.data.message : 'internal server error',
+              });
             setErr(err.response.data.message)
         })
 }
@@ -29,6 +41,11 @@ export function editTweet(dispatch, id, data) {
             dispatch({ type: "EDIT_TWEET", data: response.data.data });
         })
         .catch(err => {
+            Swal.fire({
+                icon: "Failed",
+                title: `Update Tweet Failed`,
+                text: err.response.data && err.response.data.message ? err.response.data.message : 'internal server error',
+              });
            console.log(err)
         })
 }
@@ -37,9 +54,14 @@ export function deleteTweet(dispatch, id) {
     baseAxios.delete( `/api/v1/user/${id}`, { headers: { Authorization : `Bearer ${localStorage.getItem('token')}` }})
         .then((response) => {
             console.log(response)
-            dispatch({ type: "REMOVE_TWEET", data: response.data.data });
+            dispatch({ type: "REMOVE_TWEET", data: id });
         })
         .catch(err => {
+            Swal.fire({
+                icon: "Failed",
+                title: `Delete Tweet Failed`,
+                text: err.response.data && err.response.data.message ? err.response.data.message : 'internal server error',
+              });
            console.log(err)
         })
 }

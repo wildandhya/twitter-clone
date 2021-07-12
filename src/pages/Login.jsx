@@ -38,6 +38,7 @@ function Login() {
             aria-label="Small"
             aria-describedby="inputGroup-sizing-sm"
             placeholder="Password"
+            type="password"
             onChange={(event) => {
               setPassword(event.target.value);
             }}

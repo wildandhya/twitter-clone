@@ -20,7 +20,7 @@ function Signup() {
   };
 
   return (
-    <div className="login-container">
+    <div className="signup-container">
       <div className="wrapper">
         <img src={logoTwitter} alt="twitter-logo" />
         <h1>Sign up for Twitter</h1>
@@ -49,6 +49,7 @@ function Signup() {
             aria-label="Small"
             aria-describedby="inputGroup-sizing-sm"
             placeholder="Password"
+            type="password"
             onChange={(event) => {
               setPassword(event.target.value);
             }}
@@ -57,7 +58,7 @@ function Signup() {
 
         <p className="err-message">{err}</p>
 
-        <Button textBtn="Log in" action={submitRegister} />
+        <Button textBtn="Sign up" action={submitRegister} />
         <Link to="/login">
           <p>Log in to Twitter</p>
         </Link>
