@@ -4,7 +4,6 @@ const initialState = {
 
 const homeReducer = (state = initialState, action) => {
   let { type, data } = action;
-
   switch (type) {
     case "GET_TWEET":
       return { ...state, tweetData: data };

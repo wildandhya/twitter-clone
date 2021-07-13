@@ -1,10 +1,10 @@
 import Swal from 'sweetalert2'
 import { baseAxios } from '../index'
 
-export function getTweet(dispatch) {
-    baseAxios.get( '/api/v1/user/', { headers: { Authorization : `Bearer ${localStorage.getItem('token')}` }})
+
+export function getTweet(dispatch, query) {
+    baseAxios.get( `/api/v1/user?search=${query.search}&sort=${query.sort}`, { headers: { Authorization : `Bearer ${localStorage.getItem('token')}` }})
         .then((response) => {
-           
             dispatch({ type: "GET_TWEET", data: response.data.data });
         })
         .catch(err => {
@@ -37,7 +37,11 @@ export function createTweet(dispatch, data, setErr) {
 export function editTweet(dispatch, id, data) {
     baseAxios.put( `/api/v1/user/${id}`, data, { headers: { Authorization : `Bearer ${localStorage.getItem('token')}` }})
         .then((response) => {
-            console.log(response)
+            Swal.fire({
+                icon: "Successs",
+                title: `Edit Tweet Successs`,
+                text: 'Your tweet updated',
+              });
             dispatch({ type: "EDIT_TWEET", data: response.data.data });
         })
         .catch(err => {
@@ -54,6 +58,11 @@ export function deleteTweet(dispatch, id) {
     baseAxios.delete( `/api/v1/user/${id}`, { headers: { Authorization : `Bearer ${localStorage.getItem('token')}` }})
         .then((response) => {
             console.log(response)
+            Swal.fire({
+                icon: "Successs",
+                title: `Delete Tweet Successs`,
+                text: 'Your tweet deleted',
+              });
             dispatch({ type: "REMOVE_TWEET", data: id });
         })
         .catch(err => {

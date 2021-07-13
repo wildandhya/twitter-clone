@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Dropdown, DropdownButton } from "react-bootstrap";
-import Swal from 'sweetalert2'
 import { getTweet, createTweet } from "../../store/Home/action";
 import "../../styles/MainContent.scss";
 import Button from "../Button";
@@ -16,15 +15,16 @@ function MainContent() {
   const [err, setErr] = useState("");
   const [showModalDelete, setShowModalDelete] = useState(false);
   const [showModalEdit, setShowModalEdit] = useState(false);
-  const [dataTweet, setDataTweet] = useState({id:null, text:""});
-
+  const [dataTweet, setDataTweet] = useState({ id: null, text: "" });
+  const [sortData, setSortData] = useState('')
+  console.log(sortData)
   const postTweet = (event) => {
     event.preventDefault();
     createTweet(dispatch, { tweet_text: tweet }, setErr);
   };
   useEffect(() => {
-    getTweet(dispatch);
-  }, [dispatch]);
+    getTweet(dispatch, {search:"", sort:sortData});
+  }, [dispatch, sortData]);
 
   return (
     <div className="mainContent-container">
@@ -57,7 +57,17 @@ function MainContent() {
                 setTweet(event.target.value);
               }}
             />
+           
             <div className="bottom-input">
+            <div className="sort_tweet">
+              <DropdownButton
+                id="dropdown-basic-button"
+                title="Sort"
+              >
+                <Dropdown.Item href="#/action-2" onClick={()=>setSortData("ASC")}>ASC</Dropdown.Item>
+                <Dropdown.Item href="#/action-3" onClick={()=>setSortData("DESC")}>DESC</Dropdown.Item>
+              </DropdownButton>
+            </div>
               <div className="icons">
                 <i class="bi bi-image"></i>
                 <i class="bi bi-emoji-smile"></i>
@@ -86,7 +96,11 @@ function MainContent() {
                         <Dropdown.Item
                           onClick={(e) => {
                             e.preventDefault();
-                            setDataTweet({...dataTweet, id:el.id, text:el.tweet_text});
+                            setDataTweet({
+                              ...dataTweet,
+                              id: el.id,
+                              text: el.tweet_text,
+                            });
                             setShowModalEdit(true);
                           }}
                         >
@@ -95,7 +109,7 @@ function MainContent() {
                         <Dropdown.Item
                           onClick={(e) => {
                             e.preventDefault();
-                            setDataTweet({...dataTweet, id:el.id});
+                            setDataTweet({ ...dataTweet, id: el.id });
                             setShowModalDelete(true);
                           }}
                           className="text-delete"
